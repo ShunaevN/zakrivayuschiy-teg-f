@@ -20,8 +20,9 @@
   font-family: var(--main-font, 'Inter',  sans-serif);
   background-color: var(--background-color);
   color: var(--accent-color);
-  margin-inline-start: clamp(0rem, -8.1866rem + 34.9296vw, 23.25rem);
-  margin-inline-end: clamp(0rem, -8.1866rem + 34.9296vw, 23.25rem);
+  margin-inline-start: calc(clamp(0rem, -8.1866rem + 34.3296vw, 23.25rem));
+  margin-inline-end: calc(clamp(0rem, -8.1866rem + 34.3296vw, 23.25rem));
+  
 }
 
 @supports (font-variation-settings: normal) {
@@ -32,12 +33,13 @@
 
 .substrate {
   position: absolute;
-  inline-size: 100vi ;
+  inline-size: 100% ;
   block-size: clamp(41.6875rem, 35.2394rem + 27.5117vw, 60rem);
   background-image: var(--background-image);
   z-index: -1;
   /* compensation header margin */
   margin: -102px calc(-1 * clamp(0rem, -8.1866rem + 34.9296vw, 23.25rem)) 0;  
+  
 }
 
 .header {
@@ -45,7 +47,7 @@
   margin-block-start: 102px;
   margin-block-end: 104px;
   background-color: var(--background-color);
-  
+ 
 }
 
 .header__intro {
@@ -55,6 +57,7 @@
  font-weight: 400;
  line-height: normal;
  text-transform: uppercase;
+
 }
 
 .header__title {
@@ -92,6 +95,7 @@
   gap: clamp(3.125rem, 3.037rem + 0.3756vw, 3.375rem);
 }
 
+
 .section {
   border: 2px solid var(--accent-color);
 }
@@ -99,6 +103,43 @@
 .section__title {
   background-color: var(--background-color);
   padding: 0 10px;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  top: 25px;
+  right: clamp(0.6875rem, 0.3794rem + 1.3146vw, 1.5625rem);
+  font-family: var(--accent-font), 'PressStart2P', sans-serif;
+  color: var(--accent-color);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  opacity: 0.5;
+  
+  mix-blend-mode: hard-light;
+  text-shadow:
+    -1px 0 var(--background-color), 
+   0 1px var(--background-color), 
+   1px 0 var(--background-color), 
+   0 -1px var(--background-color);
+}
+
+@supports((text-stroke: 1px var(--background-color)) or (-webkit-text-stroke: 1px var(--background-color))) {
+  .label {
+      -webkit-text-stroke: 1px var(--background-color);
+      text-stroke: 1px var(--background-color);
+      text-shadow: none;
+  }
+}
+
+.label-lowercase{
+  text-transform: lowercase;
 }
 
 .section__image {
@@ -142,13 +183,30 @@
   margin: 25px 25px 25px 0;
  
  }
+
+ .card__icon-button {
+  background-color: transparent;
+  border: none;
+ }
+
+ .card__like-button {
+  background-color: transparent;
+  color: var(--accent-color);
+  font-family: var(--accent-font), 'PressStart2P', sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 90%;
+  padding: 9px 17px; 
+  border-color: var(--accent-color);
+ }
  
  .floppy {
   inline-size: 100%;
   block-size: 100%;
  }
 
- .footer {
+ .footer_button {
   display: flex;
   border: 2px solid var(--accent-color);
   gap: 8px;
@@ -156,22 +214,53 @@
   margin: auto;
   margin-block-start: 54px;
   margin-block-end: 103px;
-
   color: var(--accent-color, #000);
   font-family: var(--accent-font), 'PressStart2P', sans-serif;
   font-size: 14px;
   font-style: normal;
   line-height: 90%;
-  
   justify-content: center;
-
+  background-color: transparent;
   max-inline-size:  clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
-  
+  padding: 9px 0;
+  inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
+  block-size: clamp(5rem, 5.6382rem + -2.723vw, 3.1875rem);
  }
+
 
 
  @supports (font-variation-settings: normal) {
   .footer {
     font-weight: var(--main-font-weight);
+  }
+}
+
+
+@media (width <= 375px) {
+  .footer_button {
+    flex-direction: column;
+  }
+ 
+  .header__title {
+    font-size: clamp(0.0625rem, 0.0625rem + 12.8vw, 3.0625rem);
+  }
+
+  .substrate {
+    block-size: clamp(0.0625rem, 0.0625rem + 177.6vw, 41.6875rem);
+  }
+
+  .page {
+    min-inline-size: 120px;
+  }
+
+  .header__intro {
+    inline-size: 100%;
+    padding-inline-start: 0;
+    padding-inline-end: 0;
+  }
+
+  .footer_button {
+    inline-size: clamp(0.0625rem, 0.0625rem + 81.3333vw, 19.125rem);
+    block-size: clamp(0.0625rem, 0.0625rem + 21.0667vw, 5rem);
   }
 }
