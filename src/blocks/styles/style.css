@@ -70,25 +70,80 @@
   margin-block-end: 25px;
 }
 
+.theme-menu { 
+  display: flex;
+  justify-content: center;
+}
+
 .theme-menu__list {
   display: flex;
   flex-direction: column;
+  align-items:start;
+  inline-size: fit-content;
   gap: 14px;
 }
 
 
-
-.theme-menu__button:disabled::before {
-  content: "▶";
-  color: var(--accent-color);
-}
-
-
 .theme-menu__button {
+  position: relative;
   background-color: transparent;
   border: none;
   text-transform: inherit;
+  text-decoration: none;
+  opacity: 1;
 }
+
+.theme-menu__button::after {
+  content: '';
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: none;
+}
+
+.theme-menu__button:disabled::before {
+  position: absolute;
+  content: "▶";
+  color: var(--accent-color);
+  animation: move_arrow 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes move_arrow {
+  0% {
+    margin-inline-start: -24px;
+  }
+  100% {
+    margin-inline-start: -20px;
+  }
+} 
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+  transition: opacity 300ms ease;
+}
+
+.theme-menu__button:focus {
+  opacity: 0.6;
+  transition: opacity 300ms ease;
+  outline: none;
+}
+
+.theme-menu__button:hover::after {
+  width: 100%;
+  transition: width 300ms ease;
+}
+
+.theme-menu__button:focus::after {
+  width: 100%;
+  transition: width 300ms ease;
+}
+
+.theme-menu__button:disabled{
+  opacity: 0.6;
+  pointer-events: none;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -152,6 +207,8 @@
   border-bottom: 2px solid var(--accent-color);
 }
 
+
+
 .section__description {
   display: flex;
   flex-direction: column;
@@ -184,12 +241,37 @@
  
  }
 
+ .contour {
+  fill: var(--accent-color);
+ }
+
+ .sparks {
+  fill: var(--sparks-color);
+  opacity: 0;
+ }
+
+ 
+
+  .like-icons:hover .core  {
+  fill: aqua;
+ }
+
  .card__icon-button {
   background-color: transparent;
   border: none;
  }
 
+ .card__icon-button:focus {
+  outline: none;
+ }
+
+ .card__icon-button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  transition: outline 0.3s ease;
+ }
+
  .card__like-button {
+  position: relative;
   background-color: transparent;
   color: var(--accent-color);
   font-family: var(--accent-font), 'PressStart2P', sans-serif;
@@ -200,13 +282,52 @@
   padding: 9px 17px; 
   border-color: var(--accent-color);
  }
+
+ .button__text {
+  position: relative;
+  color: var(--button-color-animation-hover);
+  background-color: var(--button-background-animation-hover);
+  mix-blend-mode: difference;
+ }
+
+
+ .card__like-button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
+ }
+
+  .card__like-button:hover {
+   color: var(--accent-color); 
+   
+   
+ } 
+
+ .card__like-button:before {
+  content: "";
+  position: absolute;
+  background: var(--accent-color);
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  top: 0;
+  z-index: -1;
+  transition: right 0.5s ease-in-out;
  
- .floppy {
-  inline-size: 100%;
-  block-size: 100%;
+}
+
+.card__like-button:hover:before {
+  right: 0;
+  
+}
+
+
+ .floppy-icon {
+  fill: green;
  }
 
  .footer_button {
+  position: relative;
   display: flex;
   border: 2px solid var(--accent-color);
   gap: 8px;
@@ -227,7 +348,32 @@
   block-size: clamp(5rem, 5.6382rem + -2.723vw, 3.1875rem);
  }
 
+ .footer_button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
+ }
 
+ 
+ .footer_button:hover {
+  color: var(--background-color);
+ }
+
+ .footer_button:before {
+  content: "";
+  position: absolute;
+  background:var(--accent-color);
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  top: 0;
+  z-index: -1;
+  transition: right 0.5s ease-in-out;
+}
+
+.footer_button:hover:before {
+  right: 0;
+}
 
  @supports (font-variation-settings: normal) {
   .footer {
