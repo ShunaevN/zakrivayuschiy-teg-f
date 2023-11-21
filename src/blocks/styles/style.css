@@ -219,8 +219,8 @@
   filter: contrast(20%);
 } 
 
-.filter_blur {
-  filter: blur(3.2rem);
+.filter_sepia {
+  filter: sepia(80%);
 }
 
 .filter_opacity {
@@ -347,7 +347,7 @@
 
 .like-icon .core {
   fill: transparent;
-  transition: fill 0.3s ease 0.03;
+  transition: fill 0.3s ease 0.03s;
 }
 
 .like-icon:hover .core {
