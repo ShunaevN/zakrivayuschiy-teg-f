@@ -145,7 +145,7 @@
   }
 }
 
-.label-lowercase {
+.label__lowercase {
   text-transform: lowercase;
 }
 
@@ -157,35 +157,35 @@
   inline-size: 100%;
 }
 
-.filter_saturate {
+.filter__saturate {
   filter: saturate(200%);
 }
 
-.filter_brightness {
+.filter__brightness {
   filter: brightness(200%);
 }
 
-.filter_contrast {
+.filter__contrast {
   filter: contrast(20%);
 }
 
-.filter_sepia {
+.filter__sepia {
   filter: sepia(80%);
 }
 
-.filter_opacity {
+.filter__opacity {
   filter: opacity(0.8);
 }
 
-.filter_grayscale {
+.filter__grayscale {
   filter: grayscale(0.8);
 }
 
-.filter_invert {
+.filter__invert {
   filter: invert(0.7);
 }
 
-.filter_mix_hue-rotate_sepia_invert {
+.filter__mix__hue-rotate__sepia__invert {
   filter: hue-rotate(-90deg) invert(0.7) sepia(80%);
 }
 
@@ -271,7 +271,7 @@
   mix-blend-mode: difference;
 }
 
-.footer_button {
+.footer__button {
   position: relative;
   display: flex;
   justify-content: center;
@@ -281,7 +281,7 @@
   margin-block-start: 54px;
   margin-block-end: 103px;
   border: 2px solid var(--accent-color);
-  padding: 9px 0;
+  padding: 15px 0;
   color: var(--accent-color, #000);
   font-family: var(--accent-font), 'PressStart2P', sans-serif;
   font-size: 14px;
@@ -299,7 +299,7 @@
   }
 }
 
-.floppy-icon-footer {
+.floppy__icon__footer {
   width: 21px;
   height: 21px;
 }
@@ -310,10 +310,10 @@ dialog[open] {
   inline-size: clamp(21.3125rem, 20.9604rem + 1.5023vw, 22.3125rem);
 }
 
-dialog[open] .dialog-container {
+dialog[open] .dialog__container {
   display: flex;
-  justify-content: space-between;
-  gap: 18px;
+  gap: 20px;
+  margin-inline-start: 15px;
 }
 
 .dialog__text {
@@ -325,30 +325,32 @@ dialog[open] .dialog-container {
   line-height: 150%;
   text-align: center;
   text-transform: uppercase;
+  max-inline-size:  clamp(12.375rem, 11.5827rem + 3.3803vw, 14.625rem);
 }
 
-.text-left-align {
+.text__left__align {
   text-align: left;
   inline-size: fit-content;
 }
 
-.dialog-form {
+.dialog__form {
   display: grid;
 }
 
-.dialog-floppy-icon {
+.dialog__floppy__icon {
   align-self: center;
   inline-size: 39px;
   block-size: 39px;
 }
 
-.dialog_button {
+.dialog__button {
   margin: auto;
   margin-block-start: 30px;
   border: 2px solid var(--accent-color);
   background-color: transparent;
   cursor: pointer;
-  inline-size: clamp(16.0625rem, 15.2702rem + 3.3803vw, 18.3125rem);
+  min-inline-size: clamp(16.0625rem, 15.2702rem + 3.3803vw, 18.3125rem);
+  
 }
 
 
@@ -359,16 +361,12 @@ dialog::backdrop {
 }
 
 @media (width <=375px) {
-  .footer_button {
+  .footer__button {
     flex-direction: column;
   }
 
   .header__title {
     font-size: clamp(0.0625rem, 0.0625rem + 12.8vw, 3.0625rem);
-  }
-
-  .substrate {
-    block-size: clamp(0.0625rem, 0.0625rem + 177.6vw, 41.6875rem);
   }
 
   .page {
@@ -381,7 +379,7 @@ dialog::backdrop {
     inline-size: 100%;
   }
 
-  .footer_button {
+  .footer__button {
     inline-size: clamp(0.0625rem, 0.0625rem + 81.3333vw, 19.125rem);
 
   }
