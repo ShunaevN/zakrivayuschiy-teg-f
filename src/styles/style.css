@@ -262,6 +262,17 @@
   fill: var(--sparks-color);
 }
 
+.button {
+  position: relative;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  font-family: var(--accent-font), 'PressStart2P', sans-serif;
+  line-height: 90%;
+  background-color: var(--background-color);
+  cursor: pointer;
+  border: 2px solid var(--accent-color);
+}
+  
 .card__icon-button {
   display: flex;
   align-items: center;
@@ -283,14 +294,7 @@
 }
 
 .card__like-button {
-  position: relative;
-  border-color: var(--accent-color);
   padding: 9px 17px;
-  color: var(--accent-color);
-  font-family: var(--accent-font), 'PressStart2P', sans-serif;
-  line-height: 90%;
-  background-color: transparent;
-  cursor: pointer;
   inline-size: 130px;
 }
 
@@ -327,7 +331,6 @@
 }
 
 .footer__button {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -335,13 +338,7 @@
   margin: auto;
   margin-block-start: 54px;
   margin-block-end: 103px;
-  border: 2px solid var(--accent-color);
   padding: 15px 0;
-  color: var(--accent-color, #000);
-  font-family: var(--accent-font), 'PressStart2P', sans-serif;
-  line-height: 90%;
-  background-color: var(--background-color);
-  cursor: pointer;
   max-inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
   inline-size: clamp(19.125rem, 18.4868rem + 2.723vw, 20.9375rem);
 }
@@ -401,11 +398,8 @@
   font-family: var(--accent-font), 'PressStart2P', sans-serif;
   line-height: 150%;
   text-transform: uppercase;
-}
-
-.text__left__align {
-  text-align: left;
-  inline-size: fit-content;
+  max-inline-size: clamp(12.375rem, 11.5827rem + 3.3803vw, 14.625rem);
+  font-size: 14px;
 }
 
 .dialog__form {
@@ -421,10 +415,8 @@
 .dialog__button {
   margin: auto;
   margin-block-start: 30px;
-  border: 2px solid var(--accent-color);
-  background-color: transparent;
-  cursor: pointer;
   min-inline-size: 100%;
+  padding: 9px 17px;
 }
 
 .dialog__button:focus {
